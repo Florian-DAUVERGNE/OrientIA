@@ -22,7 +22,7 @@ import TabContentCustom from "./tabs-content-custom";
 const tabs = ["account", "password", "email", "ok"];
 
 export default function AnimatedCarouselDApiDemo() {
-  const [currentTab, setCurrentTab] = React.useState("account");
+  const [currentTab, setCurrentTab] = React.useState(tabs[0]);
 
   const goToNextTab = () => {
     const currentIndex = tabs.indexOf(currentTab);
