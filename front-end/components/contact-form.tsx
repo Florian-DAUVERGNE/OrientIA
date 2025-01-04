@@ -2,16 +2,9 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs,  TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup} from "@/components/ui/radio-group";
@@ -19,7 +12,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import RadioButtonCustom from "./radio-button-custom";
 import TabContentCustom from "./tabs-content-custom";
 
-const tabs = ["account", "password", "email", "ok"];
+const tabs = ["account", "password", "email", "validation"];
 
 export default function AnimatedCarouselDApiDemo() {
   const [currentTab, setCurrentTab] = React.useState(tabs[0]);
@@ -82,70 +75,43 @@ export default function AnimatedCarouselDApiDemo() {
               transition={{ duration: 0.3 }}>
               
               <TabContentCustom title={"Account"} description={"Make changes to your account here. Click save when you're done."}/>
-              <TabContentCustom title={"Test"} description={"Make changes to your account here. Click save when you're done."}/>
 
               <TabContentCustom
-      title="Profile"
-      description="Edit your profile information"
-      submit={true}
-    >
-      <div className="space-y-1">
-        <Label htmlFor="name">Name</Label>
-        <Input id="name" defaultValue="Pedro Duarte" />
-      </div>
-      <div className="space-y-1">
-        <Label htmlFor="username">Username</Label>
-        <Input id="username" defaultValue="@peduarte" />
-      </div>
-    </TabContentCustom>
+                title="Profile"
+                description="Edit your profile information"
+                submit={true}
+              >
+                <div className="space-y-1">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" defaultValue="Pedro Duarte" />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="username">Username</Label>
+                  <Input id="username" defaultValue="@peduarte" />
+                </div>
+              </TabContentCustom>
 
-              
-              <TabsContent value="email">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Email</CardTitle>
-                    <CardDescription>
-                      Change your email preferences here.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-2">
-                    <div className="space-y-1">
-                      <Label htmlFor="marketing">Marketing emails</Label>
-                      <RadioGroup
-                        defaultValue="comfortable"
-                        className="grid grid-cols-4 gap-8">
+              <TabContentCustom
+                title="email"
+                description="Change your email preferences here."
+                submit={true}
+              >
+                <div className="space-y-1">
+                  <Label htmlFor="marketing">Marketing emails</Label>
+                  <RadioGroup
+                    defaultValue="comfortable"
+                    className="grid grid-cols-4 gap-8">
 
-                        <RadioButtonCustom name={"Default"} id={0} />
-                        <RadioButtonCustom name={"Comfortable"} id={1} />
-                        <RadioButtonCustom name={"Compact"} id={2} />
+                    <RadioButtonCustom name={"Default"} id={0} />
+                    <RadioButtonCustom name={"Comfortable"} id={1} />
+                    <RadioButtonCustom name={"Compact"} id={2} />
 
-                      </RadioGroup>
-                    </div>
-                  </CardContent>
+                  </RadioGroup>
+                </div>
+              </TabContentCustom>
 
-                </Card>
-              </TabsContent>
+              <TabContentCustom title={"Validation"} description={"Click save when you're done."} submit={true}/>
 
-              <TabContentCustom title={"Confirmation"} description={"Click save when you're done."} submit={true}/>
-
-              <TabsContent value="ok">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Confirmation</CardTitle>
-                    <CardDescription>
-                      Your changes have been saved successfully.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p>Thank you for updating your information.</p>
-                  </CardContent>
-                  <CardFooter>
-                    <Button onClick={() => setCurrentTab("account")}>
-                      Back to Account
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </TabsContent>
             </motion.div>
           </AnimatePresence>
         </form>

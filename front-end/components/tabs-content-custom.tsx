@@ -1,7 +1,5 @@
-import { Label } from "@/components/ui/label";
-
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { Input } from "./ui/input";
+
 import { Button } from "./ui/button";
 import { TabsContent } from "@radix-ui/react-tabs";
 
